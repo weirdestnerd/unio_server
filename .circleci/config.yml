@@ -1,0 +1,44 @@
+#version: 2.1
+#orbs:
+#  conda: deepgenomics/conda@25.0.0
+#executors:
+#  conda-exec: conda/miniconda
+#commands:
+#  install-conda: conda/install-conda
+#jobs:
+#  build:
+##    executor: conda-exec
+#    docker:
+#      - image: circleci/python:3.7
+#    steps:
+#      - checkout
+#      - run:
+#          name: Download conda
+#          command: |
+#            wget https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -O miniconda.sh
+#            bash miniconda.sh -b -p "$HOME"/miniconda
+#            source /home/circleci/miniconda/etc/profile.d/conda.sh
+#            # Conda configuration
+#            conda config --set always_yes yes --set auto_update_conda false
+#            # Update conda
+#            conda update conda
+#            conda create -n test python=3.7
+#            conda activate test
+#            conda install -n test --file requirements.txt
+#            pip install -r requirements.txt
+#            python3 manage.py test
+##      - run:
+##          name: Create conda test environment
+##          command: |
+##            conda create -n test python=3.7
+##            conda activate test
+##      - run:
+##          name: Install requirements
+##          command: |
+##            conda install -n test --file requirements.txt
+##            pip install -r requirements.txt
+##      - run:
+##          name: Run tests
+##          command: |
+##            conda activate test
+##            python3 manage.py test
